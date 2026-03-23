@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+    <title>Books</title>
+</head>
+<body>
+
+<h2>Book List</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Available</th>
+    </tr>
+
+    <tr th:each="b : ${books}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.title}"></td>
+        <td th:text="${b.available}"></td>
+    </tr>
+</table>
+
+<br>
+
+<h3>Add New Book</h3>
+
+<form action="/books/add" method="post">
+    Title: <input type="text" name="title" required><br><br>
+    <button type="submit">Add Book</button>
+</form>
+
+<br>
+
+<a href="/">Logout</a>
+
+</body>
+</html>
